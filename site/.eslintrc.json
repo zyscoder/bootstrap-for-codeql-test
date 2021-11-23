@@ -46,6 +46,7 @@
   "rules": {
     "no-new": "off",
     "prefer-template": "error",
+    "spaced-comment": "off",
     "strict": "error",
     "unicorn/no-array-for-each": "off",
     "unicorn/numeric-separators-style": "off",
