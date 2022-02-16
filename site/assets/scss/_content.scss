@@ -31,6 +31,8 @@
 
   // Override Bootstrap defaults
   > .table {
+    --bs-table-border-color: var(--bs-border-color);
+
     max-width: 100%;
     margin-bottom: 1.5rem;
     @include font-size(.875rem);
@@ -74,6 +76,11 @@
   min-width: 280px;
 }
 
+.table-swatches {
+  td:first-child { width: 340px; }
+  td:nth-child(2) { width: 200px; }
+}
+
 .bd-title {
   @include font-size(3rem);
 }
@@ -83,8 +90,8 @@
   font-weight: 300;
 }
 
-.bd-text-purple-bright {
-  color: $bd-violet;
+.bd-text-violet {
+  color: var(--bd-violet);
 }
 
 .bd-bg-purple-bright {
@@ -94,6 +101,7 @@
 .bi {
   width: 1em;
   height: 1em;
+  vertical-align: -.125em;
   fill: currentColor;
 }
 

@@ -31,7 +31,7 @@
   }
 
   // Tooltip and popover demos
-  document.querySelectorAll('.tooltip-demo')
+  document.querySelectorAll('.tooltip-demo, .bd-navbar')
     .forEach(function (tooltip) {
       new bootstrap.Tooltip(tooltip, {
         selector: '[data-bs-toggle="tooltip"]'
@@ -130,6 +130,59 @@
       modalTitle.textContent = 'New message to ' + recipient
       modalBodyInput.value = recipient
     })
+  }
+
+  // Toggle color modes
+
+  var currentTheme = localStorage.getItem('theme')
+  var currentThemeIcon = document.querySelector('#bd-theme > .bi use')
+
+  function checkMatchMedia() {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches && !currentTheme) {
+      document.documentElement.setAttribute('data-theme', 'dark')
+    } else {
+      document.documentElement.removeAttribute('data-theme')
+    }
+  }
+
+  document.querySelectorAll('.bd-theme-toggles .dropdown-item')
+    .forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        var theme = this.getAttribute('data-theme-value')
+
+        document.querySelector('.bd-theme-toggles .current').removeAttribute('class')
+        toggle.parentElement.setAttribute('class', 'current')
+
+        var svg = toggle.querySelector('.theme-icon use').getAttribute('href')
+        currentThemeIcon.setAttribute('href', svg)
+
+        console.log(theme)
+
+        // in OS darkmode, going from light to auto doesn't make it dark
+
+        if (theme === 'auto') {
+          document.documentElement.removeAttribute('data-theme')
+          localStorage.removeItem('theme')
+          checkMatchMedia()
+        } else {
+          document.documentElement.setAttribute('data-theme', theme)
+          localStorage.setItem('theme', theme)
+        }
+      })
+    })
+
+  if (currentTheme) {
+    var currentThemeButton = document.querySelector('.dropdown-item[data-theme-value="' + currentTheme + '"]')
+    document.documentElement.setAttribute('data-theme', currentTheme)
+    document.querySelector('.bd-theme-toggles .current').removeAttribute('class')
+    currentThemeButton.parentElement.setAttribute('class', 'current')
+    var svg = currentThemeButton.querySelector('.theme-icon use').getAttribute('href')
+    currentThemeIcon.setAttribute('href', svg)
+  } else {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+      checkMatchMedia()
+    })
+    checkMatchMedia()
   }
 
   // Insert copy to clipboard button before .highlight
