@@ -31,7 +31,7 @@
   }
 
   // Tooltip and popover demos
-  document.querySelectorAll('.tooltip-demo')
+  document.querySelectorAll('.tooltip-demo, .bd-navbar')
     .forEach(tooltip => {
       new bootstrap.Tooltip(tooltip, {
         selector: '[data-bs-toggle="tooltip"]'
