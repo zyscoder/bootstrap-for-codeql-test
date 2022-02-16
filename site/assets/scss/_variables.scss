@@ -19,4 +19,11 @@ $bd-callout-variants: info, warning, danger !default;
   --bd-accent-rgb: #{to-rgb($bd-accent)};
   --bd-pink-rgb: #{to-rgb($pink-500)};
   --bd-teal-rgb: #{to-rgb($teal-500)};
+  --bd-sidebar-link-bg: rgba(var(--bd-violet-rgb), .1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bd-violet: #{mix($bd-violet, $black, 75%)};
+  }
 }
