@@ -57,10 +57,22 @@
     }
 
     // Prevent breaking of code
+    th,
     td:first-child > code {
       white-space: nowrap;
     }
   }
+}
+
+.table-options {
+  td:nth-child(2) {
+    min-width: 160px;
+  }
+}
+
+.table-options td:last-child,
+.table-utilities td:last-child {
+  min-width: 280px;
 }
 
 .bd-title {
