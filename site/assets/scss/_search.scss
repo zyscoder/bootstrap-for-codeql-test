@@ -23,7 +23,11 @@
     position: absolute;
     top: .75rem;
     left: 50%;
-    width: 100%;
+    width: 200px;
+    margin-left: -100px;
+  }
+
+  @include media-breakpoint-up(xl) {
     width: 280px;
     margin-left: -140px;
   }

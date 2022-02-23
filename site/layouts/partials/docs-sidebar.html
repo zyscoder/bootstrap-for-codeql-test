@@ -1,8 +1,8 @@
-<nav class="collapse bd-links" id="bd-docs-nav" aria-label="Docs navigation">
+<nav class="bd-links w-100">
   {{- $url := split .Permalink "/" -}}
   {{- $page_slug := index $url (sub (len $url) 2) -}}
 
-  <ul class="bd-links-nav list-unstyled mb-0 py-3 py-md-2 pe-lg-2">
+  <ul class="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2">
   {{- range $group := .Site.Data.sidebar -}}
     {{- $link := $group.title -}}
     {{- $link_slug := $link | urlize -}}

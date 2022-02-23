@@ -3,10 +3,8 @@
 //
 
 // Offset for the sticky header
-@include media-breakpoint-up(md) {
-  :root {
-    scroll-padding-top: 4rem;
-  }
+:root {
+  scroll-padding-top: 5rem;
 }
 
 .bd-content {

@@ -47,11 +47,11 @@
     vertical-align: -.125rem;
   }
 
-  .offcanvas {
+  .offcanvas-lg {
     background-color: var(--bd-violet);
     border-left: 0;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       box-shadow: $box-shadow-lg;
     }
   }

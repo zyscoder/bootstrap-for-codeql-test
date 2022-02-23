@@ -16,10 +16,10 @@
   'use strict'
 
   // Scroll the active sidebar link into view
-  var sidenav = document.querySelector('.bd-links')
+  var sidenav = document.querySelector('.bd-sidebar')
   if (sidenav) {
     var sidenavHeight = sidenav.clientHeight
-    var sidenavActiveLink = document.querySelector('#bd-docs-nav .active')
+    var sidenavActiveLink = document.querySelector('.bd-links-nav .active')
     var sidenavActiveLinkTop = sidenavActiveLink.offsetTop
     var sidenavActiveLinkHeight = sidenavActiveLink.clientHeight
     var viewportTop = sidenavActiveLinkTop
