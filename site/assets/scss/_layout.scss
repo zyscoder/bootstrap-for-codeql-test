@@ -1,5 +1,8 @@
-.bd-layout {
+.bd-gutter {
   --bs-gutter-x: #{$bd-gutter-x};
+}
+
+.bd-layout {
 
   @include media-breakpoint-up(lg) {
     display: grid;
