@@ -14,7 +14,8 @@
     padding-left: .3125rem;
     @include font-size(.75rem);
     color: rgba($white, .65);
-    content: "Ctrl + /";
+    // content: "⌘K";
+    content: attr(data-shortcut);
     background-color: rgba($white, .1);
     @include border-radius(.125rem);
   }
