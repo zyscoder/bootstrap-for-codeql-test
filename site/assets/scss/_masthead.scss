@@ -55,6 +55,11 @@
   padding: .8rem 2rem;
 }
 
+.bd-masthead-followup,
+.bd-masthead .container-xxl {
+  --bs-gutter-x: #{$bd-gutter-x};
+}
+
 .masthead-followup-icon {
   padding: 1rem;
   background-color: currentColor;
