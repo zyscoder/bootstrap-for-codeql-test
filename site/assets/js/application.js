@@ -134,55 +134,58 @@
 
   // Toggle color modes
 
-  var currentTheme = localStorage.getItem('theme')
-  var currentThemeIcon = document.querySelector('#bd-theme > .bi use')
+  var root = document.documentElement
+  var activeTheme = localStorage.getItem('theme')
+  var activeThemeIcon = document.querySelector('.theme-icon-active use')
 
-  function checkMatchMedia() {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches && !currentTheme) {
+  var checkSystemTheme = function () {
+    // if OS dark mode is set, and there's no stored theme, set the theme to dark (but don't store it)
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches && !activeTheme) {
       document.documentElement.setAttribute('data-theme', 'dark')
     } else {
+      // otherwise, set the theme to the default (light)
       document.documentElement.removeAttribute('data-theme')
     }
   }
 
-  document.querySelectorAll('.bd-theme-toggles .dropdown-item')
+  var setTheme = function (theme) {
+    document.querySelectorAll('[data-theme-value]').forEach(function (el) {
+      el.classList.remove('active')
+    })
+
+    var btnToActive = document.querySelector('[data-theme-value="' + theme + '"]')
+    var svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
+
+    btnToActive.classList.add('active')
+    activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+  }
+
+  document.querySelectorAll('[data-theme-value]')
     .forEach(function (toggle) {
       toggle.addEventListener('click', function () {
         var theme = this.getAttribute('data-theme-value')
 
-        document.querySelector('.bd-theme-toggles .current').removeAttribute('class')
-        toggle.parentElement.setAttribute('class', 'current')
-
-        var svg = toggle.querySelector('.theme-icon use').getAttribute('href')
-        currentThemeIcon.setAttribute('href', svg)
-
-        console.log(theme)
-
-        // in OS darkmode, going from light to auto doesn't make it dark
+        setTheme(theme)
 
         if (theme === 'auto') {
-          document.documentElement.removeAttribute('data-theme')
+          root.removeAttribute('data-theme')
           localStorage.removeItem('theme')
-          checkMatchMedia()
+          checkSystemTheme()
         } else {
-          document.documentElement.setAttribute('data-theme', theme)
+          root.setAttribute('data-theme', theme)
           localStorage.setItem('theme', theme)
         }
       })
     })
 
-  if (currentTheme) {
-    var currentThemeButton = document.querySelector('.dropdown-item[data-theme-value="' + currentTheme + '"]')
-    document.documentElement.setAttribute('data-theme', currentTheme)
-    document.querySelector('.bd-theme-toggles .current').removeAttribute('class')
-    currentThemeButton.parentElement.setAttribute('class', 'current')
-    var svg = currentThemeButton.querySelector('.theme-icon use').getAttribute('href')
-    currentThemeIcon.setAttribute('href', svg)
+  if (activeTheme) {
+    root.setAttribute('data-theme', activeTheme)
+    setTheme(activeTheme)
   } else {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
-      checkMatchMedia()
+      checkSystemTheme()
     })
-    checkMatchMedia()
+    checkSystemTheme()
   }
 
   // Insert copy to clipboard button before .highlight

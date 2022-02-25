@@ -74,25 +74,29 @@
     --bs-dropdown-padding: .25rem;
     --bs-dropdown-link-hover-bg: rgba(var(--bd-violet-rgb), .1);
     --bs-dropdown-link-active-bg: rgba(var(--bd-violet-rgb), 1);
-    @include rfs(.875rem, --bs-dropdown-font-size);
+    @include font-size(.875rem);
     @include border-radius(.5rem);
     box-shadow: $dropdown-box-shadow;
 
-    .current {
-      font-weight: 600;
-
-      .bi {
-        display: block !important; // stylelint-disable-line declaration-no-important
-      }
-    }
-
     .dropdown-item {
       @include border-radius(.25rem);
+
+      + .dropdown-item {
+        margin-top: .125rem;
+      }
 
       &:active {
         .bi {
           color: inherit !important; // stylelint-disable-line declaration-no-important
         }
+      }
+    }
+
+    .active {
+      font-weight: 600;
+
+      .bi {
+        display: block !important; // stylelint-disable-line declaration-no-important
       }
     }
   }
