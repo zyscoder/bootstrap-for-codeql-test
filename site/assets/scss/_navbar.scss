@@ -78,12 +78,12 @@
     @include border-radius(.5rem);
     box-shadow: $dropdown-box-shadow;
 
+    li + li {
+      margin-top: .125rem;
+    }
+
     .dropdown-item {
       @include border-radius(.25rem);
-
-      + .dropdown-item {
-        margin-top: .125rem;
-      }
 
       &:active {
         .bi {
