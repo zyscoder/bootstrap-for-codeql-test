@@ -90,6 +90,21 @@ Floating labels also support `.form-control-plaintext`, which can be helpful for
 </div>
 {{< /example >}}
 
+## Always floating
+
+Make any `.form-control` always use a floating label with visible placeholder with the `.form-floating-always` modifier class. Visible placeholders use the default input `color`  and lighten to the placeholder color on focus. This matches them with other floating labels built with plaintext inputs and selects.
+
+{{< example >}}
+<div class="form-floating form-floating-always mb-3">
+  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+  <label for="floatingInput">Email address</label>
+</div>
+<div class="form-floating form-floating-always">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="••••••••">
+  <label for="floatingPassword">Password</label>
+</div>
+{{< /example >}}
+
 ## Layout
 
 When working with the Bootstrap grid system, be sure to place form elements within column classes.
