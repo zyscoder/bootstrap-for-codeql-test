@@ -63,7 +63,6 @@
     }
 
     // Prevent breaking of code
-    // stylelint-disable-next-line selector-max-compound-selectors
     th,
     td:first-child > code {
       white-space: nowrap;
@@ -80,8 +79,9 @@
 .table-options td:last-child,
 .table-utilities td:last-child {
   min-width: 280px;
+}
 
-  .table-swatches {
+.table-swatches {
   td:first-child { width: 340px; }
   td:nth-child(2) { width: 200px; }
 }
@@ -103,7 +103,7 @@
   width: 1em;
   height: 1em;
   vertical-align: -.125em;
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 .icon-link {

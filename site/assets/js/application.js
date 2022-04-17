@@ -134,8 +134,8 @@
 
   // Toggle color modes
 
-  var toggleSwitch = document.querySelector('.bd-theme-toggle input[type="checkbox"]')
-  var currentTheme = localStorage.getItem('theme')
+  const toggleSwitch = document.querySelector('.bd-theme-toggle input[type="checkbox"]')
+  const currentTheme = localStorage.getItem('theme')
 
   if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme)
