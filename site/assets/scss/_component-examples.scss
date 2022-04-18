@@ -204,7 +204,7 @@
 }
 
 .bd-example-modal {
-  background-color: #fafafa;
+  background-color: var(--bs-secondary-bg);
 
   .modal {
     position: static;

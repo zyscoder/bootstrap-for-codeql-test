@@ -350,11 +350,12 @@ $enable-validation-icons:     true !default;
 $enable-negative-margins:     false !default;
 $enable-deprecation-messages: true !default;
 $enable-important-utilities:  true !default;
+$enable-dark-mode:            true !default;
 
 // Prefix for :root CSS variables
 
-$variable-prefix:             bs- !default; // Deprecated in v5.2.0 for the shorter `$prefix`
-$prefix:                      $variable-prefix !default;
+$prefix:             bs- !default; // Deprecated in v5.2.0 for the shorter `$prefix`
+$prefix:                      $prefix !default;
 
 // Gradient
 //
@@ -402,20 +403,11 @@ $body-text-align:           null !default;
 $body-color:                $gray-900 !default;
 $body-bg:                   $white !default;
 
-$body-color-dark:           $gray-500 !default;
-$body-bg-dark:              $gray-900 !default;
-
 $body-secondary-color:      rgba($body-color, .75) !default;
 $body-secondary-bg:         $gray-200 !default;
 
 $body-tertiary-color:       rgba($body-color, .5) !default;
 $body-tertiary-bg:          $gray-100 !default;
-
-$body-secondary-color-dark: rgba($body-color-dark, .75) !default;
-$body-secondary-bg-dark:    $gray-800 !default;
-
-$body-tertiary-color-dark:  rgba($body-color-dark, .5) !default;
-$body-tertiary-bg-dark:     mix($gray-800, $gray-900, 50%) !default;
 
 // Links
 //
@@ -429,9 +421,6 @@ $link-hover-decoration:                   null !default;
 
 $stretched-link-pseudo-element:           after !default;
 $stretched-link-z-index:                  1 !default;
-
-$link-color-dark:                         $blue-300 !default;
-$link-hover-color-dark:                   $blue-200 !default;
 
 // Paragraphs
 //
@@ -506,7 +495,6 @@ $border-widths: (
 
 $border-style:                solid !default;
 $border-color:                rgba($black, .15) !default;
-$border-color-dark:           rgba($white, .15) !default;
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
@@ -610,7 +598,6 @@ $headings-font-style:         null !default;
 $headings-font-weight:        500 !default;
 $headings-line-height:        1.2 !default;
 $headings-color:              null !default;
-$headings-color-dark:         #fff !default;
 // scss-docs-end headings-variables
 
 // scss-docs-start display-headings
@@ -841,12 +828,12 @@ $input-padding-y-lg:                    $input-btn-padding-y-lg !default;
 $input-padding-x-lg:                    $input-btn-padding-x-lg !default;
 $input-font-size-lg:                    $input-btn-font-size-lg !default;
 
-$input-bg:                              var(--#{$variable-prefix}form-control-bg) !default;
-$input-disabled-bg:                     var(--#{$variable-prefix}form-control-disabled-bg) !default;
+$input-bg:                              var(--#{$prefix}form-control-bg) !default;
+$input-disabled-bg:                     var(--#{$prefix}form-control-disabled-bg) !default;
 $input-disabled-border-color:           null !default;
 
-$input-color:                           var(--#{$variable-prefix}body-color) !default;
-$input-border-color:                    var(--#{$variable-prefix}border-color) !default; //$gray-400
+$input-color:                           var(--#{$prefix}body-color) !default;
+$input-border-color:                    var(--#{$prefix}border-color) !default; //$gray-400
 $input-border-width:                    $input-btn-border-width !default;
 $input-box-shadow:                      $box-shadow-inset !default;
 
@@ -890,7 +877,7 @@ $form-check-transition:                   null !default;
 $form-check-input-active-filter:          brightness(90%) !default;
 
 $form-check-input-bg:                     $input-bg !default;
-$form-check-input-border:                 var(--#{$variable-prefix}border-width) solid var(--#{$variable-prefix}border-color) !default;
+$form-check-input-border:                 var(--#{$prefix}border-width) solid var(--#{$prefix}border-color) !default;
 $form-check-input-border-radius:          .25em !default;
 $form-check-radio-border-radius:          50% !default;
 $form-check-input-focus-border:           $input-focus-border-color !default;
@@ -935,7 +922,7 @@ $input-group-addon-padding-y:           $input-padding-y !default;
 $input-group-addon-padding-x:           $input-padding-x !default;
 $input-group-addon-font-weight:         $input-font-weight !default;
 $input-group-addon-color:               $input-color !default;
-$input-group-addon-bg:                  $gray-200 !default;
+$input-group-addon-bg:                  var(--#{$prefix}tertiary-bg) !default;
 $input-group-addon-border-color:        $input-border-color !default;
 // scss-docs-end input-group-variables
 
@@ -950,7 +937,7 @@ $form-select-line-height:           $input-line-height !default;
 $form-select-color:                 $input-color !default;
 $form-select-bg:                    $input-bg !default;
 $form-select-disabled-color:        null !default;
-$form-select-disabled-bg:           $gray-200 !default;
+$form-select-disabled-bg:           $input-disabled-bg !default;
 $form-select-disabled-border-color: $input-disabled-border-color !default;
 $form-select-bg-position:           right $form-select-padding-x center !default;
 $form-select-bg-size:               16px 12px !default; // In pixels because image dimensions
@@ -987,7 +974,7 @@ $form-select-transition:          $input-transition !default;
 $form-range-track-width:          100% !default;
 $form-range-track-height:         .5rem !default;
 $form-range-track-cursor:         pointer !default;
-$form-range-track-bg:             $gray-300 !default;
+$form-range-track-bg:             var(--#{$prefix}tertiary-bg) !default;
 $form-range-track-border-radius:  1rem !default;
 $form-range-track-box-shadow:     $box-shadow-inset !default;
 
@@ -1000,14 +987,14 @@ $form-range-thumb-box-shadow:              0 .1rem .25rem rgba($black, .1) !defa
 $form-range-thumb-focus-box-shadow:        0 0 0 1px $body-bg, $input-focus-box-shadow !default;
 $form-range-thumb-focus-box-shadow-width:  $input-focus-width !default; // For focus box shadow issue in Edge
 $form-range-thumb-active-bg:               tint-color($component-active-bg, 70%) !default;
-$form-range-thumb-disabled-bg:             $gray-500 !default;
+$form-range-thumb-disabled-bg:             var(--#{$prefix}secondary-bg) !default;
 $form-range-thumb-transition:              background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 // scss-docs-end form-range-variables
 
 // scss-docs-start form-file-variables
 $form-file-button-color:          $input-color !default;
 $form-file-button-bg:             $input-group-addon-bg !default;
-$form-file-button-hover-bg:       shade-color($form-file-button-bg, 5%) !default;
+$form-file-button-hover-bg:       var(--#{$prefix}secondary-bg) !default;
 // scss-docs-end form-file-variables
 
 // scss-docs-start form-floating-variables
@@ -1150,9 +1137,9 @@ $dropdown-padding-x:                0 !default;
 $dropdown-padding-y:                .5rem !default;
 $dropdown-spacer:                   .125rem !default;
 $dropdown-font-size:                $font-size-base !default;
-$dropdown-color:                    var(--#{$variable-prefix}body-color) !default;
-$dropdown-bg:                       var(--#{$variable-prefix}body-bg) !default;
-$dropdown-border-color:             var(--#{$variable-prefix}border-color) !default;
+$dropdown-color:                    var(--#{$prefix}body-color) !default;
+$dropdown-bg:                       var(--#{$prefix}body-bg) !default;
+$dropdown-border-color:             var(--#{$prefix}border-color) !default;
 $dropdown-border-radius:            $border-radius !default;
 $dropdown-border-width:             $border-width !default;
 $dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width) !default;
@@ -1160,9 +1147,9 @@ $dropdown-divider-bg:               $dropdown-border-color !default;
 $dropdown-divider-margin-y:         $spacer * .5 !default;
 $dropdown-box-shadow:               $box-shadow !default;
 
-$dropdown-link-color:               var(--#{$variable-prefix}body-color) !default;
+$dropdown-link-color:               var(--#{$prefix}body-color) !default;
 $dropdown-link-hover-color:         $dropdown-link-color !default;
-$dropdown-link-hover-bg:            var(--#{$variable-prefix}tertiary-bg) !default;
+$dropdown-link-hover-bg:            var(--#{$prefix}tertiary-bg) !default;
 
 $dropdown-link-active-color:        $component-active-color !default;
 $dropdown-link-active-bg:           $component-active-bg !default;
@@ -1252,18 +1239,18 @@ $placeholder-opacity-min:           .2 !default;
 $card-spacer-y:                     $spacer !default;
 $card-spacer-x:                     $spacer !default;
 $card-title-spacer-y:               $spacer * .5 !default;
-$card-border-width:                 $border-width !default;
+$card-border-width:                 var(--#{$prefix}border-width) !default;
 $card-border-color:                 var(--#{$prefix}border-color) !default;
-$card-border-radius:                $border-radius !default;
+$card-border-radius:                var(--#{$prefix}border-radius) !default;
 $card-box-shadow:                   null !default;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
 $card-cap-padding-y:                $card-spacer-y * .5 !default;
 $card-cap-padding-x:                $card-spacer-x !default;
-$card-cap-bg:                       rgba($black, .03) !default;
+$card-cap-bg:                       rgba(var(--#{$prefix}body-color-rgb), .03) !default;
 $card-cap-color:                    null !default;
 $card-height:                       null !default;
 $card-color:                        null !default;
-$card-bg:                           $white !default;
+$card-bg:                           var(--#{$prefix}body-bg) !default;
 $card-img-overlay-padding:          $spacer !default;
 $card-group-margin:                 $grid-gutter-width * .5 !default;
 // scss-docs-end card-variables
@@ -1273,11 +1260,11 @@ $card-group-margin:                 $grid-gutter-width * .5 !default;
 // scss-docs-start accordion-variables
 $accordion-padding-y:                     1rem !default;
 $accordion-padding-x:                     1.25rem !default;
-$accordion-color:                         var(--#{$variable-prefix}body-color) !default;
-$accordion-bg:                            $body-bg !default;
-$accordion-border-width:                  $border-width !default;
+$accordion-color:                         var(--#{$prefix}body-color) !default;
+$accordion-bg:                            var(--#{$prefix}body-bg) !default;
+$accordion-border-width:                  var(--#{$prefix}border-width) !default;
 $accordion-border-color:                  var(--#{$prefix}border-color) !default;
-$accordion-border-radius:                 $border-radius !default;
+$accordion-border-radius:                 var(--#{$prefix}border-radius) !default;
 $accordion-inner-border-radius:           subtract($accordion-border-radius, $accordion-border-width) !default;
 
 $accordion-body-padding-y:                $accordion-padding-y !default;
@@ -1286,7 +1273,7 @@ $accordion-body-padding-x:                $accordion-padding-x !default;
 $accordion-button-padding-y:              $accordion-padding-y !default;
 $accordion-button-padding-x:              $accordion-padding-x !default;
 $accordion-button-color:                  $accordion-color !default;
-$accordion-button-bg:                     var(--#{$variable-prefix}accordion-bg) !default;
+$accordion-button-bg:                     var(--#{$prefix}accordion-bg) !default;
 $accordion-transition:                    $btn-transition, border-radius .15s ease !default;
 $accordion-button-active-bg:              tint-color($component-active-bg, 90%) !default;
 $accordion-button-active-color:           shade-color($primary, 10%) !default;
@@ -1414,10 +1401,10 @@ $modal-dialog-margin-y-sm-up:       1.75rem !default;
 $modal-title-line-height:           $line-height-base !default;
 
 $modal-content-color:               null !default;
-$modal-content-bg:                  $white !default;
+$modal-content-bg:                  var(--#{$prefix}body-bg) !default;
 $modal-content-border-color:        var(--#{$prefix}border-color) !default;
-$modal-content-border-width:        $border-width !default;
-$modal-content-border-radius:       $border-radius-lg !default;
+$modal-content-border-width:        var(--#{$prefix}border-width) !default;
+$modal-content-border-radius:       var(--#{$prefix}border-radius-lg) !default;
 $modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
 $modal-content-box-shadow-xs:       $box-shadow-sm !default;
 $modal-content-box-shadow-sm-up:    $box-shadow !default;
@@ -1483,9 +1470,9 @@ $progress-bar-transition:           width .6s ease !default;
 // List group
 
 // scss-docs-start list-group-variables
-$list-group-color:                  $gray-900 !default;
-$list-group-bg:                     $white !default;
-$list-group-border-color:           rgba($black, .125) !default;
+$list-group-color:                  var(--#{$prefix}body-color) !default;
+$list-group-bg:                     var(--#{$prefix}body-bg) !default;
+$list-group-border-color:           var(--#{$prefix}border-color) !default;
 $list-group-border-width:           $border-width !default;
 $list-group-border-radius:          $border-radius !default;
 
@@ -1494,18 +1481,18 @@ $list-group-item-padding-x:         $spacer !default;
 $list-group-item-bg-scale:          -80% !default;
 $list-group-item-color-scale:       40% !default;
 
-$list-group-hover-bg:               $gray-100 !default;
+$list-group-hover-bg:               var(--#{$prefix}tertiary-bg) !default;
 $list-group-active-color:           $component-active-color !default;
 $list-group-active-bg:              $component-active-bg !default;
 $list-group-active-border-color:    $list-group-active-bg !default;
 
-$list-group-disabled-color:         $gray-600 !default;
+$list-group-disabled-color:         var(--#{$prefix}secondary-color) !default;
 $list-group-disabled-bg:            $list-group-bg !default;
 
 $list-group-action-color:           $gray-700 !default;
 $list-group-action-hover-color:     $list-group-action-color !default;
 
-$list-group-action-active-color:    $body-color !default;
+$list-group-action-active-color:    var(--#{$prefix}body-color) !default;
 $list-group-action-active-bg:       $gray-200 !default;
 // scss-docs-end list-group-variables
 
@@ -1638,7 +1625,6 @@ $offcanvas-backdrop-opacity:        $modal-backdrop-opacity !default;
 
 $code-font-size:                    $small-font-size !default;
 $code-color:                        $pink !default;
-$code-color-dark:                   $pink-300 !default;
 
 $kbd-padding-y:                     .1875rem !default;
 $kbd-padding-x:                     .375rem !default;
@@ -1648,3 +1634,5 @@ $kbd-bg:                            var(--#{$prefix}body-color) !default;
 $nested-kbd-font-weight:            null !default; // Deprecated in v5.2.0, removing in v6
 
 $pre-color:                         null !default;
+
+@import "variables-dark";

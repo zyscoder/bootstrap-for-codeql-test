@@ -538,8 +538,8 @@ $utilities: map-merge(
           "muted": $text-muted,
           "black-50": rgba($black, .5), // deprecated
           "white-50": rgba($white, .5), // deprecated
-          "body-secondary": var(--#{$variable-prefix}secondary-color),
-          "body-tertiary": var(--#{$variable-prefix}tertiary-color),
+          "body-secondary": var(--#{$prefix}secondary-color),
+          "body-tertiary": var(--#{$prefix}tertiary-color),
           "reset": inherit,
         )
       )
@@ -566,8 +566,8 @@ $utilities: map-merge(
         $utilities-bg-colors,
         (
           "transparent": transparent,
-          "body-secondary": rgba(var(--#{$variable-prefix}secondary-bg-rgb), var(--#{$variable-prefix}bg-opacity)),
-          "body-tertiary": rgba(var(--#{$variable-prefix}tertiary-bg-rgb), var(--#{$variable-prefix}bg-opacity)),
+          "body-secondary": rgba(var(--#{$prefix}secondary-bg-rgb), var(--#{$prefix}bg-opacity)),
+          "body-tertiary": rgba(var(--#{$prefix}tertiary-bg-rgb), var(--#{$prefix}bg-opacity)),
         )
       )
     ),
