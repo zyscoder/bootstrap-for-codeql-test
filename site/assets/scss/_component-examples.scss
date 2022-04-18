@@ -8,8 +8,8 @@
     > [class^="col-"] {
       padding-top: .75rem;
       padding-bottom: .75rem;
-      background-color: rgba(39, 41, 43, .03);
-      border: 1px solid rgba(39, 41, 43, .1);
+      background-color: var(--bs-tertiary-bg);
+      border: 1px solid var(--bs-secondary-bg);
     }
   }
 
@@ -20,7 +20,7 @@
 
 .bd-example-row-flex-cols .row {
   min-height: 10rem;
-  background-color: rgba(255, 0, 0, .1);
+  background-color: rgba(var(--bs-danger-rgb), .1);
 }
 
 .bd-example-cssgrid {
@@ -33,14 +33,14 @@
   .grid > * {
     padding-top: .75rem;
     padding-bottom: .75rem;
-    background-color: rgba(255, 0, 255, .1);
-    border: 1px solid rgba(255, 0, 255, .25);
+    background-color: rgba(var(--bd-pink-rgb), .1);
+    border: 1px solid rgba(var(--bd-pink-rgb), .25);
   }
 }
 
 .bd-highlight {
-  background-color: rgba($bd-purple, .15);
-  border: 1px solid rgba($bd-purple, .15);
+  background-color: rgba(var(--bd-violet-rgb), .15);
+  border: 1px solid rgba(var(--bd-violet-rgb), .15);
 }
 
 // Grid mixins
@@ -182,8 +182,8 @@
   .ratio {
     display: inline-block;
     width: 10rem;
-    color: $gray-600;
-    background-color: $gray-100;
+    color: var(--bs-secondary-color);
+    background-color: var(--bs-tertiary-bg);
     border: var(--#{$prefix}border-width) solid var(--#{$prefix}border-color);
 
     > div {
@@ -278,7 +278,7 @@
     width: 5rem;
     height: 5rem;
     margin: .25rem;
-    background-color: #f5f5f5;
+    background-color: var(--bs-tertiary-bg);
   }
 }
 
@@ -296,17 +296,17 @@
 
 .bd-example-position-utils {
   position: relative;
-  padding: 3em;
+  padding: 2rem;
 
   .position-relative {
     height: 200px;
-    background-color: #f5f5f5;
+    background-color: var(--bs-tertiary-bg);
   }
 
   .position-absolute {
-    width: 2em;
-    height: 2em;
-    background-color: $dark;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--bs-body-color);
     @include border-radius();
   }
 }
