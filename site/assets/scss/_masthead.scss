@@ -75,9 +75,18 @@
   mix-blend-mode: darken;
 
   svg {
-    filter: drop-shadow(0 1px 1px #fff);
+    filter: drop-shadow(0 1px 1px var(--bs-body-bg));
   }
 }
+
+@if $enable-dark-mode {
+  [data-theme="dark"] {
+    .masthead-followup-icon {
+      mix-blend-mode: lighten;
+    }
+  }
+}
+
 
 .masthead-followup-svg {
   filter: drop-shadow(0 1px 0 rgba(0, 0, 0, .125));
