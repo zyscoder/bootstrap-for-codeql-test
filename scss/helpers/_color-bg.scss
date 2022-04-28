@@ -1,7 +1,8 @@
 @each $color, $value in $theme-colors {
   $color-rgb: to-rgb($value);
+  $color-alpha: var(--#{$prefix}bg-opacity, 1);
   .text-bg-#{$color} {
     color: color-contrast($value) !important; // stylelint-disable-line declaration-no-important
-    background-color: rgba($color-rgb, var(--#{$prefix}bg-opacity, 1)) !important; // stylelint-disable-line declaration-no-important
+    background-color: rgba($color-rgb, $color-alpha) !important; // stylelint-disable-line declaration-no-important
   }
 }
