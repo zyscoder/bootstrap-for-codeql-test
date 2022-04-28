@@ -102,11 +102,11 @@ Colors ending in `--rgb` provide the `red, green, blue` values for use in `rgb()
 | **Secondary —** For disabled states, dividers, and lighter text. | <div class="p-3 mb-1 rounded-2" style="background-color: var(--bs-secondary-color);">&nbsp;</div> <div class="p-3 rounded-2" style="background-color: var(--bs-secondary-bg);">&nbsp;</div> | `--bs-secondary-color`<br>`--bs-secondary-color-rgb`<br>`--bs-secondary-bg`<br>`--bs-secondary-bg-rgb` |
 | **Tertiary —** For hovers, accents, wells, and text. | <div class="p-3 mb-1 rounded-2" style="background-color: var(--bs-tertiary-color);">&nbsp;</div> <div class="p-3 rounded-2" style="background-color: var(--bs-tertiary-bg);">&nbsp;</div> | `--bs-tertiary-color`<br>`--bs-tertiary-color-rgb`<br>`--bs-tertiary-bg`<br>`--bs-tertiary-bg-rgb` |
 | **Border —** For component borders, dividers, and rules. Blends with background colors thanks to `rgba()` values. | <div class="p-3 rounded-2" style="background-color: var(--bs-border-color);">Border color</div> | `--bs-border-color` |
-| **Primary —** Main theme color, used for hyperlinks, focus styles, and component and form active states. | <div class="p-3 text-body rounded-2" style="background-color: var(--bs-primary);">Primary</div> | `--bs-primary`<br>`--bs-primary-rgb` |
-| **Success —** Theme color used for positive or successful actions and information. | <div class="p-3 text-body rounded-2" style="background-color: var(--bs-success);">Success</div> | `--bs-success`<br>`--bs-success-rgb` |
-| **Danger —** Theme color used for errors and dangerous actions. | <div class="p-3 text-body rounded-2" style="background-color: var(--bs-danger);">Danger</div> | `--bs-danger`<br>`--bs-danger-rgb` |
-| **Warning —** Theme color used for warning messages. | <div class="p-3 text-body rounded-2" style="background-color: var(--bs-warning);">Warning</div> | `--bs-warning`<br>`--bs-warning-rgb` |
-| **Info —** Theme color used for neutral and informative content. | <div class="p-3 text-body rounded-2" style="background-color: var(--bs-info);">Info</div> | `--bs-info`<br>`--bs-info-rgb` |
+| **Primary —** Main theme color, used for hyperlinks, focus styles, and component and form active states. | <div class="p-3 text-bg-primary rounded-2">Primary</div> | `--bs-primary`<br>`--bs-primary-rgb` |
+| **Success —** Theme color used for positive or successful actions and information. | <div class="p-3 text-bg-success rounded-2">Success</div> | `--bs-success`<br>`--bs-success-rgb` |
+| **Danger —** Theme color used for errors and dangerous actions. | <div class="p-3 text-bg-danger rounded-2">Danger</div> | `--bs-danger`<br>`--bs-danger-rgb` |
+| **Warning —** Theme color used for warning messages. | <div class="p-3 text-bg-warning rounded-2">Warning</div> | `--bs-warning`<br>`--bs-warning-rgb` |
+| **Info —** Theme color used for neutral and informative content. | <div class="p-3 text-bg-info rounded-2">Info</div> | `--bs-info`<br>`--bs-info-rgb` |
 {{< /bs-table >}}
 
 ### Theme colors
