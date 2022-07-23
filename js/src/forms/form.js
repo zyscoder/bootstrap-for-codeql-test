@@ -17,7 +17,7 @@ const EVENT_SUBMIT = `submit${EVENT_KEY}`
 const EVENT_RESET = `reset${EVENT_KEY}`
 
 const CLASS_VALIDATED = 'was-validated'
-const SELECTOR_DATA_TOGGLE = 'form[data-bs-toggle="form-validation"]'
+const SELECTOR_DATA_TOGGLE = 'form[data-bs-toggle="form"]'
 
 const Default = {
   type: 'feedback', // or 'tooltip'
@@ -25,7 +25,8 @@ const Default = {
 }
 
 const DefaultType = {
-  type: 'string', validateCallback: '(function|null)'
+  type: 'string',
+  validateCallback: '(function|null)'
 }
 
 class Form extends BaseComponent {
@@ -86,10 +87,6 @@ class Form extends BaseComponent {
     return false
   }
 
-  getDataForSubmission() {
-    return new FormData(this._element)
-  }
-
   _appendErrorToField(field, givenMessage) {
     const element = field.getElement()
 
@@ -114,19 +111,17 @@ class Form extends BaseComponent {
     const fields = new Map()
     const formElements = Array.from(this._element.elements) // the DOM elements
     for (const element of formElements) {
-      const name = element.name || element.id
-
       const field = FormField.getOrCreateInstance(element, {
-        name, type: this._config.type
+        type: this._config.type
       })
-      fields.set(name, field)
+      fields.set(field.name(), field)
     }
 
     return fields
   }
 
   _fetchErrors() {
-    return typeof this._config.validateCallback === 'function' ? this._config.validateCallback(this.getDataForSubmission()) : {}
+    return typeof this._config.validateCallback === 'function' ? this._config.validateCallback(this) : {}
   }
 }
 
