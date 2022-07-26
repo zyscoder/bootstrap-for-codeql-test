@@ -15,8 +15,6 @@
 /* global bootstrap: false */
 
 (() => {
-  'use strict'
-
   // --------
   // Tooltips
   // --------

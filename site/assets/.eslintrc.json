@@ -1,0 +1,45 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "plugins": [
+    "markdown"
+  ],
+  "overrides": [
+    {
+      // In v2, configuration for fenced code blocks is separate from the
+      // containing Markdown file. Each code block has a virtual filename
+      // appended to the Markdown file's path.
+      "files": [
+        "./**/*.js"
+      ],
+      // Configuration for fenced code blocks goes with the override for
+      // the code block's virtual filename, for example:
+      "parserOptions": {
+        "ecmaFeatures": {
+          "impliedStrict": true
+        }
+      },
+      "rules": {
+        "no-array-for-each": "off",
+        "unicorn/no-array-for-each": "off",
+        "unicorn/numeric-separators-style": "off",
+        "no-unused-expressions": "off",
+        "no-unused-labels": "off",
+        "no-labels": "off"
+      }
+    }
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "extends": "../.eslintrc.json",
+  "rules": {
+    "no-new": "off",
+    "prefer-template": "error",
+    "strict": "error",
+    "unicorn/no-array-for-each": "off",
+    "unicorn/numeric-separators-style": "off"
+  }
+}
