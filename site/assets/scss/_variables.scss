@@ -10,7 +10,8 @@ $dropdown-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/200
 $bd-gutter-x: 3rem;
 $bd-callout-variants: info, warning, danger !default;
 
-:root {
+:root,
+:host {
   --bd-purple: #{$bd-purple};
   --bd-violet: #{$bd-violet};
   --bd-accent: #{$bd-accent};
