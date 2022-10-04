@@ -81,10 +81,13 @@ ${htmlSnippet.replace(/^/gm, '    ')}
   document.querySelectorAll('.btn-edit').forEach(btn => {
     btn.addEventListener('click', event => {
       const exampleRef = event.target.closest('.btn-edit').getAttribute('data-sb-js-snippet')
+
       StackBlitzSDK.openBootstrapSnippet(exampleRef)
     })
 
     StackBlitzSDK.openBootstrapSnippet = async (exampleRef) => {
+      const isRTL = '-rtl' === exampleRef.substring(exampleRef.length - 4)
+
       const exampleMarkup = "../examples/" + exampleRef + "/index.html"
       let markup
       let jsSnippet = 'import \'./style.css\';'
@@ -95,12 +98,15 @@ ${htmlSnippet.replace(/^/gm, '    ')}
 
       let d = document.createElement('html')
       d.innerHTML = markup
-      console.log(d.querySelector('body'))
 
       const exampleCSS = d.querySelector('style').innerHTML
 
       // Get CSS file
-      const css = "../examples/" + exampleRef + "/" + exampleRef + ".css"
+      const css = "../examples/"
+        + (isRTL ? (exampleRef.substring(0, exampleRef.length - 4)) : exampleRef)
+        + "/"
+        + (isRTL ? (exampleRef.substring(0, exampleRef.length - 4) + '.rtl') : exampleRef)
+        + ".css"
       let cssContent = ''
       const response = await fetch(css)
 
