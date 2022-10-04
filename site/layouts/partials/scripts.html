@@ -108,6 +108,15 @@ ${htmlSnippet.replace(/^/gm, '    ')}
         cssContent = await response.text()
       }
 
+      // Get JS file
+      const js = "../examples/" + exampleRef + "/" + exampleRef + ".js"
+      let jsContent = ''
+      const responseJS = await fetch(js)
+
+      if (responseJS.ok) {
+        jsContent = await responseJS.text()
+      }
+
       const t = `<!doctype html>
 <html lang="en">
   <head>
@@ -124,7 +133,7 @@ ${htmlSnippet.replace(/^/gm, '    ')}
       const project = {
         files: {
           'index.html': t,
-          'index.js': jsSnippet,
+          'index.js': jsSnippet + '\r\n\r\n' + jsContent,
           'style.css': exampleCSS + cssContent,
         },
         title: 'Bootstrap Example',
