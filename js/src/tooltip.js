@@ -270,10 +270,9 @@ class Tooltip extends BaseComponent {
       }
     }
 
-    for (const trigger of [TRIGGER_CLICK, TRIGGER_FOCUS, TRIGGER_HOVER]) {
-      this._activeTrigger[trigger] = false
-    }
-
+    this._activeTrigger[TRIGGER_CLICK] = false
+    this._activeTrigger[TRIGGER_FOCUS] = false
+    this._activeTrigger[TRIGGER_HOVER] = false
     this._isHovered = null // it is a trick to support manual triggering
 
     const complete = () => {
