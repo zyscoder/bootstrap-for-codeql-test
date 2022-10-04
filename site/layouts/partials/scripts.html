@@ -101,10 +101,12 @@ ${htmlSnippet.replace(/^/gm, '    ')}
 
       // Get CSS file
       const css = "../examples/" + exampleRef + "/" + exampleRef + ".css"
-      let cssContent
-      await fetch(css)
-        .then(response => response.text())
-        .then(text => cssContent = text)
+      let cssContent = ''
+      const response = await fetch(css)
+
+      if (response.ok) {
+        cssContent = await response.text()
+      }
 
       const t = `<!doctype html>
 <html lang="en">
