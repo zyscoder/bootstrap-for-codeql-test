@@ -126,8 +126,10 @@ ${htmlSnippet.replace(/^/gm, '    ')}
       // Get HTML content
       let htmlContent = d.querySelector('body').innerHTML.replaceAll('"/docs/5.', '"https://getbootstrap.com/docs/5.')
 
-      // Special case to handle images in Heroes example
+      // Special use case to handle images from Heroes example
       htmlContent = htmlContent.replaceAll('src="bootstrap-', 'src="https://getbootstrap.com/docs/5.2/examples/' + exampleRef + '/bootstrap-')
+      // Special use case to handle images from Features example
+      htmlContent = htmlContent.replaceAll('background-image: url(\'', 'background-image: url(\'https://getbootstrap.com/docs/5.2/examples/' + exampleRef + '/')
 
       const t = `<!doctype html>
 <html lang="en">
