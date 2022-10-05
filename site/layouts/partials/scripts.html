@@ -123,6 +123,9 @@ ${htmlSnippet.replace(/^/gm, '    ')}
         jsContent = await responseJS.text()
       }
 
+      // Get HTML content
+      let htmlContent = d.querySelector('body').innerHTML.replaceAll('"/docs/5.', '"https://getbootstrap.com/docs/5.')
+
       const t = `<!doctype html>
 <html lang="en">
   <head>
@@ -132,7 +135,7 @@ ${htmlSnippet.replace(/^/gm, '    ')}
     <title>Bootstrap Example</title>
     <${'script'} src="{{ .Site.Params.cdn.js_bundle }}"></${'script'}>
   </head>
-  ${d.querySelector('body').innerHTML}
+  ${htmlContent}
   </body>
 </html>`
 
