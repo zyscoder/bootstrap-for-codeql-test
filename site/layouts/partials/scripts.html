@@ -115,12 +115,23 @@ ${htmlSnippet.replace(/^/gm, '    ')}
       }
 
       // Get JS file
-      const js = "../examples/" + exampleRef + "/" + exampleRef + ".js"
+      // First try in the basic directory
+      const js = "../examples/" + (isRTL ? (exampleRef.substring(0, exampleRef.length - 4)) : exampleRef) + "/" + (isRTL ? (exampleRef.substring(0, exampleRef.length - 4)) : exampleRef) + ".js"
       let jsContent = ''
       const responseJS = await fetch(js)
 
       if (responseJS.ok) {
         jsContent = await responseJS.text()
+      }
+
+      // Second try for RTL in the basic-rtl directory
+      if (isRTL && !responseJS.ok) {
+        const jsRTL = "../examples/" + exampleRef + "/" + exampleRef.substring(0, exampleRef.length - 4) + ".js"
+        const responseJSRTL = await fetch(jsRTL)
+
+        if (responseJSRTL.ok) {
+          jsContent = await responseJSRTL.text()
+        }
       }
 
       // Get HTML content
